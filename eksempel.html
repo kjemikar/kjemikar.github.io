@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Introduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .concept-text {
+            margin-bottom: 20px;
+        }
+        .examples {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .radio-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        #submit-button {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regel 1: Rekkefølge i formel 1</h1>
+        <div class="concept-text">
+            <p>HDersom vi har en forbindelse av <em>ett</em> metall og <em>ett</em> ikke-metall, skal alltid metallet stå først i formelen. Bruk ev. periodesystemet til å avgjøre om grunnstoff er metall eller ikke-metall. Du kan finne utdypende unformasjon om det her: <a href="url">Metaller og ikke-metaller og alt i mellom</a></p>
+        </div>
+        
+        <div class="examples">
+            <h2>Eksempler</h2>
+            <ul>
+                <li>Eksempel 1: NaCl ikke ClNa fordi Na er et metall og Cl er et ikke-metall.</li>
+                <li>Eksempel 2: MgO og ikke (skuffende nok) OMg av samme grunn som over.</li>
+                <li>Eksempel 3: Rb<sub>3</sub>N</li> og ikke NRb<sub>3</sub>
+            </ul>
+        </div>
+        
+        <div class="questions">
+            <h2>Flervalgsspørsmål</h2>
+            <form id="quiz-form">
+                <fieldset>
+                    <legend>1: Hva er rett formel?</legend>
+                    <div class="question">
+                        <p class="radio-label"><input type="radio" name="q1" value="a"> CaCl<sub>2</sub></p>
+                        <p class="radio-label"><input type="radio" name="q1" value="b"> Cl<sub>2</sub>Ca</p>
+
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>2: Hva er rett formel?</legend>
+                    <div class="question">
+                        <p class="radio-label"><input type="radio" name="q2" value="a"> SBa</p>
+                        <p class="radio-label"><input type="radio" name="q2" value="b"> BaS</p>
+
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>3: Hva er rett formel?</legend>
+                    <div class="question">
+                        <p class="radio-label"><input type="radio" name="q3" value="a"> NY</p>
+                        <p class="radio-label"><input type="radio" name="q3" value="b"> YN</p>
+
+                    </div>
+                </fieldset>
+                <button type="button" id="submit-button" onclick="gradeQuiz()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    function gradeQuiz() {
+        // Collect user's answers
+        const answers = {
+            q1: document.querySelector('input[name="q1"]:checked'),
+            q2: document.querySelector('input[name="q2"]:checked'),
+            q3: document.querySelector('input[name="q3"]:checked')
+        };
+
+        // Check if all questions are answered
+        for (const question in answers) {
+            if (!answers[question]) {
+                alert('Please answer all questions before submitting.');
+                return;
+            }
+        }
+
+        // Process the answers (you can implement grading logic here)
+        let score = 0;
+
+        if (answers.q1.value === 'a') {
+            score += 1;
+        }
+
+        if (answers.q2.value === 'b') {
+            score += 1;
+        }
+
+        if (answers.q3.value === 'b') {
+            score += 1;
+        }
+        if (score == 3){
+            alert('Du klarte alle! Bra jobba');
+        }
+        else{
+        // Display the score or perform any other actions
+        alert(`Du klarte ${score} av 3. Prøv igjen`);
+        }
+    }
+    </script>
+</body>
+</html>
