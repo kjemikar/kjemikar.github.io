@@ -1,13 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om oss</title>
-</head>
+    <title>Om Kjemikar</title>
+    <link rel="stylesheet" href="style.css"> </head>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-image: url(test.svg);
+        background-position: 50% 0%;
+        background-size: 1000px;
+    }
+
+    .container {
+        margin: 50px auto;
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.87);
+        padding-bottom: 50px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Make buttons stack vertically */
+        align-items: center; /* Center buttons horizontally */
+        justify-content: center; /* Center buttons vertically */
+    }
+
+    .rounded-button {
+        background-color: #008CBA; /* Adjust color as needed */
+        border: none;
+        color: white;
+        padding: 20px 40px ;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50px;
+        margin-bottom: 20px
+    }
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+    }
+    </style>
 <body>
-    <h1>Velkommen til vår side!</h1>
-    <p>Denne siden er under utvikling, og vi jobber med å fylle den med relevant informasjon.</p>
-    <p>Hvis du har spørsmål eller ønsker å komme i kontakt med oss, kan du sende en e-post til kontakt@eksempel.com.</p>
+
+    <div class="container">
+        <h1>Om Kjemikar</h1>
+        <p>Denne sida er laga av Kristian Weibye aka. kjemikar</p>
+        <p>Dersom du vil kome i kontakt med meg kan du sende ein epost til namnet mitt (over) med . mellom at akademiet.no. I blant lagar eg videoar på YouTube som  <a href="https://www.youtube.com/@kjemikar">@kjemikar</a> og lastar opp ting på <a href="https://github.com/kjemikar">GitHub</a>. Elles er eg å finne for tida på BlueSky:<a href="https://bsky.app/profile/kjemikar.bsky.social">HER</a></p>
+        <p>Denne sida er laga for å hjelpe elevar i Kjemi 1 og Kjemi 2. Dersom du har forslag til forbetringar eller endringar kan du sende meg ein epost.</p>
+        <p>Periodesystemet i bakgrunnen har eg laga sjølv i python og er tilgjengeleg her: <a href="https://commons.wikimedia.org/wiki/File:Periodesystemet_med_fargekoding_for_blokkar.svg">Nynorsk</a> <a href="https://commons.wikimedia.org/wiki/File:Periodesystem_med_fargekodig_for_blokker.svg">Bokmål</a></p>
+        <div class="button-container">
+            <a href="index.html" class="rounded-button">Tilbake til forsida</a>
+    </div>
 </body>
 </html>
