@@ -1,72 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="all" href="main.css">
-    <title>Namnsettingsreglar</title>
-</head>
+    <title>Kjemikar - Kjemi 1 og Kjemi 2</title>
+    <link rel="stylesheet" href="style.css"> </head>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
- <!-- Side navigation -->
-<div class="sidenav">
-<a href="regel1.htm">Regel 1</a>
-<a href="regel2.htm">Regel 2</a>
-<a href="regel3.htm">Regel 3</a>
-<a href="regel4.htm">Regel 4</a>
-<a href="regel5.htm">Regel 5</a>
-<a href="regel6.htm">Regel 6</a>
-<a href="regel7.htm">Regel 7 (ikkje pensum Kjemi 1)</a>
-<a href="regel8.htm">Regel 8 </a>
-<a href="regel9.htm">Regel 9 </a>
-<a href="regel10.htm">Regel 10 </a>
-<a href="regel11.htm">Regel 11 </a>
-<a href="regel12.htm">Regel 12 </a>
-<a href="regel13.htm">Regel 13  </a>
-<a href="regel14.htm">Regel 14 (ikkje pensum Kjemi 1)</a>
-<a href="regel15.htm">Regel 15 </a>
-<a href="regel16.htm">Regel 16 (ikkje pensum Kjemi 1)</a>
-<a href="regel17.htm">Regel 17 (ikkje pensum Kjemi 1)</a>
-<a href="regel18.htm">Regel 18 (ikkje pensum Kjemi 1)</a>
-<a href="regel19.htm">Regel 19 (ikkje pensum Kjemi 1)</a>
-</div>
+.container {
+    margin: 50px auto;
+    width: 80%;
+}
 
-<!-- Page content -->
-<div class="main">
+h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+}
 
+.button-container {
+    display: flex;
+    flex-direction: column; /* Make buttons stack vertically */
+    align-items: center; /* Center buttons horizontally */
+    justify-content: center; /* Center buttons vertically */
+}
 
+.rounded-button {
+    background-color: #008CBA; /* Adjust color as needed */
+    border: none;
+    color: white;
+    padding: 20px 40px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-bottom: 20px
+}
+    </style>
 <body>
-    <h1>Namnsettingsreglar</h1>
-
-
-Kjemi handler om kjemiske stoffer. Hvert stoff har sin formel og sitt navn - 
-gitt ved systematisk bruk av et sett med regler. 
-Gjennom dette selvstudium-programmet kan du selv bli ekspert på å lage formler og 
-sette navn på uorganiske stoffer.<br>
-Før du starter bør du lese innledningen under.<br>
-Programmet er utarbeidet av Vivi Ringnes og bygger på boken "Navn på kjemiske stoffer" som utkom på Cappelens forlag i 1996. Vivi Ringnes hadde tilknytning til Skolelaboratoriet i kjemi, Kjemisk institutt, Universitetet i Oslo.<br>
-Programmet ble tilrettelagt av Nasjonalt senter for naturfag i opplæringen tidlig på 2000-tallet og omarbeida av Kristian Weibye ved Akademiet Realfagsgymnas Sandvika i 2023.<br>
-
-<h2>Innledning</h2>
-
-Teksten er bygget opp rundt en Regel. Deretter kommer eksempler på regelen i bruk og så spørsmål der du selv anvender regelen. 
-Du må arbeide deg systematisk utover fra Regel 1, videre til Regel 2, Regel 3 osv. og så langt du vil. 
-Det du blir spurt om etter for eksempel Regel 12 (i Spørsmål 12), bygger på alt du hittil har lært - altså Regel 1-11. 
-Fasit til spørsmålene finner du ikke per nå, spør kjemilæreren din.<br>
-<br>
-Før du starter bør du gjøre deg kjent med periodesystemet og finne ut hvor metallene og ikke-metallene er plassert i systemet. 
-Følgende kan være gode ting å ha for hånden.<br>
-<ul>
-    <li> Periodesystemet. <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Periodesystemet_med_fargekoding_for_blokkar.svg/2560px-Periodesystemet_med_fargekoding_for_blokkar.svg.png"> Her</a> er et som Kristian har laga </li>
-    <li><a href="https://no.wikipedia.org/wiki/Liste_over_grunnstoffer"> Grunnstoffnavn </a> </li>
-    <li> <a href="https://no.wikipedia.org/wiki/Atomsymbol">Atomsymbolliste</a> - En alfabetisk liste over atomsymbol finn du nedst på sida</li>
-    <li>Eit oversyn over kva grunnstoff som er metall og ikkje-metall: <a href="https://en.wikipedia.org/wiki/Periodic_table#Classification_of_elements">Oversyn</a>. Hugs at grensa kan vere litt flytande: <a href="https://en.wikipedia.org/wiki/Metalloid">Halvmetall</a></li>
-  </ul>
-
-Disse tre listene må du ofte slå opp i når du arbeider med programmet.<br>
-
-Tabellene fra de ulike reglene vil du etterkvart finne på ein eigen side. En tabell har samme nummer som den regelen den hører til, f.eks. står Tabell 4 også under Regel 4.
-(Dette er framleis ikkje implementert i denne republiseringa)
-
+    <div class="container">
+        <h1>Kjemikar</h1>
+        <p>Velkomen til Kjemikar! Her finn du ressursar for Kjemi 1 og Kjemi 2.</p>
+        <div class="button-container">
+            <a href="/Elever/Navnsetting/" class="rounded-button">For elevar</a>
+            <button class="rounded-button">For Lærarar</button>
+            <button class="rounded-button">Treningsserver Kjemiolympiaden</button>
+            <button class="rounded-button">Om Kjemikar</button>
+        </div>
+    </div>
 </body>
-</div>
 </html>
