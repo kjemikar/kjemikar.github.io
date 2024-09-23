@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <title>Apologies for the Lack of Content</title>
-</head>
+    <title>Om Kjemikar</title>
+    <link rel="stylesheet" href="style.css"> </head>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-image: url(../test.svg);
+        background-position: 50% 0%;
+        background-size: 1000px;
+    }
+
+    .container {
+        margin: 50px auto;
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.87);
+        padding-bottom: 50px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Make buttons stack vertically */
+        align-items: center; /* Center buttons horizontally */
+        justify-content: center; /* Center buttons vertically */
+    }
+
+    .rounded-button {
+        background-color: #008CBA; /* Adjust color as needed */
+        border: none;
+        color: white;
+        padding: 20px 40px ;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50px;
+        margin-bottom: 20px
+    }
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+    }
+    </style>
 <body>
-    <h1>Apologies for the Lack of Content</h1>
-    <p>We apologize for the inconvenience, but this page is currently under construction and does not have any content yet.</p>
-    <p>Please check back later for updates.</p>
+
+    <div class="container">
+        <h1>Ressursar til lærarar</h1>
+        <p>Denne sida er veldig i startfasen. Eg har ikkje hatt så mykje tid til å leggje inn ting, men her er nokre periodesystem du kan nytte:</p>
+        <h2>Periodesystem</h2>
+        <p>Preiodesystema eg har lenkja til er i svg-format, men det kan du ev. konvertere til pdf om du skriv det ut til pdf frå nettlesar til dømes. Elles tilrår eg Inkscape eller Gimp om du skal konvertere til png eller jpeg. Alle er laga med svgwrite og chemlib i python.</p>
+        <p>Periodesystemm med elektronegativitet representert i farge: <a href="../images/A4test.svg">Elektronegativitet</a></p>
+        <p>Periodesystem med atommassar (brukt til visittkort): <a href="../images/nynorsk_liten_massar.svg">Massar liten</a> </p> 
+        <p>Periodesystem med atomnummer (brukt til visittkort): <a href="../images/A4test.svg">Blokk liten</a></p> 
+        <p>Periodesystemet i bakgrunnen har eg laga sjølv i python og er tilgjengeleg her: <a href="https://commons.wikimedia.org/wiki/File:Periodesystemet_med_fargekoding_for_blokkar.svg">Nynorsk</a> <a href="https://commons.wikimedia.org/wiki/File:Periodesystem_med_fargekodig_for_blokker.svg">Bokmål</a></p>
+        <div class="button-container">
+            <a href="../index.html" class="rounded-button">Tilbake til forsida</a>
+    </div>
 </body>
 </html>
