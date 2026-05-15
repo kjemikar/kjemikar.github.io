@@ -156,31 +156,45 @@
     }
 
     function printSVG() {
-        const svgElement = document.getElementById('preview');
-        if (!svgElement) return;
+    const svgElement = document.getElementById('preview');
+    if (!svgElement) return;
 
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <html>
-            <head>
-                <title>Print Grid</title>
-                <style>
-                    @page { size: A3 landscape; margin: 0; }
-                    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-                    svg { width: 420mm; height: 297mm; }
-                </style>
-            </head>
-            <body>
-                ${svgElement.outerHTML}
-                <script>
-                    window.onload = function() { window.print(); window.close(); }
-                <\/script>
-            </body>
-            </html>
-        `);
-        printWindow.document.close();
-    }
-
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+        <html>
+        <head>
+            <title>Print Grid</title>
+            <style>
+                @page { 
+                    size: A3 landscape; 
+                    margin: 0; 
+                }
+                body { 
+                    margin: 0; 
+                    padding: 0;
+                    background: #fff;
+                }
+                svg { 
+                    width: 420mm; 
+                    height: 297mm; 
+                    display: block; /* Prevents trailing whitespace bugs */
+                }
+            </style>
+        </head>
+        <body>
+            ${svgElement.outerHTML}
+            <script>
+                window.onload = function() { 
+                    window.print(); 
+                    window.close(); 
+                }
+            <\/script>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+}
+    
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, 
             tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
