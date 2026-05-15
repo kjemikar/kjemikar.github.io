@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,12 +66,12 @@
     <h2>A3 Telefonhotellgenerator</h2>
     <p>Skriv inn elevnamn (maks 10 stk., 1 per line). Sida genererer eit liggjande A3-ark med 10 plassar, med tilhøyrande namn, til telefonar. Hugs å velgje A3 som storleik når du skriv ut. Ingenting vert lagra på sida, men eg tilrår jamvel å nytte berre førenamn.</p>
     
-    <textarea id="studentNames" placeholder="Roms Dahl&#10;Mari Høne&#10;Ivar Aasen..."></textarea>
+    <textarea id="studentNames" placeholder="John Doe&#10;Jane Smith&#10;Alex Jones..."></textarea>
     
     <div>
-        <button onclick="generateGrid()">Generer hotell</button>
+        <button onclick="generateGrid()">Generer Hotell</button>
         <button class="secondary" id="downloadBtn" onclick="downloadSVG()" style="display:none;">Last ned SVG</button>
-        <button class="secondary" id="printBtn" onclick="printSVG()" style="display:none;">Skriv ut</button>
+        <button class="secondary" id="printBtn" onclick="printSVG()" style="display:none;">Skriv ut ark</button>
     </div>
 
     <div class="actions">
@@ -84,8 +84,6 @@
     const A3_WIDTH = 420;
     const A3_HEIGHT = 297;
     
-    // Grid Setup: 5 columns, 2 rows = 10 cells
-    // (This gives vertical slots of ~84mm x 148.5mm, ideal for smartphones)
     const COLS = 5;
     const ROWS = 2;
     
@@ -94,30 +92,30 @@
 
     function generateGrid() {
         const text = document.getElementById('studentNames').value;
-        // Split by newline and filter out empty lines
         const names = text.split('\n').map(name => name.trim()).filter(name => name.length > 0);
         
         let svgContent = `<svg id="preview" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${A3_WIDTH} ${A3_HEIGHT}" width="${A3_WIDTH}mm" height="${A3_HEIGHT}mm">`;
         
-        // Add a subtle border around the whole A3 page
-        svgContent += `<rect x="0" y="0" width="${A3_WIDTH}" height="${A3_HEIGHT}" fill="none" stroke="#ccc" stroke-width="0.5"/>`;
+        // 1. Draw the single horizontal dividing line right down the middle
+        const midY = A3_HEIGHT / 2;
+        svgContent += `<line x1="0" y1="${midY}" x2="${A3_WIDTH}" y2="${midY}" stroke="#000" stroke-width="0.5" stroke-dasharray="2,2"/>`;
+        
+        // 2. Draw the 4 internal vertical dividing lines
+        for (let c = 1; c < COLS; c++) {
+            const lineX = c * CELL_WIDTH;
+            svgContent += `<line x1="${lineX}" y1="0" x2="${lineX}" y2="${A3_HEIGHT}" stroke="#000" stroke-width="0.5" stroke-dasharray="2,2"/>`;
+        }
 
+        // 3. Populate the student names in their invisible grid positions
         let nameIndex = 0;
-
         for (let r = 0; r < ROWS; r++) {
             for (let c = 0; c < COLS; c++) {
-                const x = c * CELL_WIDTH;
-                const y = r * CELL_HEIGHT;
-                const studentName = names[nameIndex] || ""; // Leave blank if no name left
+                const studentName = names[nameIndex] || "";
 
-                // Draw cell boundary
-                svgContent += `<rect x="${x}" y="${y}" width="${CELL_WIDTH}" height="${CELL_HEIGHT}" fill="none" stroke="#000" stroke-width="0.5" stroke-dasharray="2,2"/>`;
-                
-                // Add student name if it exists
                 if (studentName) {
-                    // Position text in the center of the cell
-                    const textX = x + (CELL_WIDTH / 2);
-                    const textY = y + (CELL_HEIGHT / 2);
+                    // Calculate exact center coordinates for the text
+                    const textX = (c * CELL_WIDTH) + (CELL_WIDTH / 2);
+                    const textY = (r * CELL_HEIGHT) + (CELL_HEIGHT / 2);
                     
                     svgContent += `
                         <text x="${textX}" y="${textY}" 
@@ -136,10 +134,7 @@
 
         svgContent += `</svg>`;
         
-        // Render to screen
         document.getElementById('svgContainer').innerHTML = svgContent;
-        
-        // Show utility buttons
         document.getElementById('downloadBtn').style.display = 'inline-block';
         document.getElementById('printBtn').style.display = 'inline-block';
     }
@@ -164,7 +159,6 @@
         const svgElement = document.getElementById('preview');
         if (!svgElement) return;
 
-        // Open a clean print window to isolate the SVG
         const printWindow = window.open('', '_blank');
         printWindow.document.write(`
             <html>
