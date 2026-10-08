@@ -115,8 +115,12 @@
                 if (studentName) {
                     // Calculate exact center coordinates for the text
                     const textX = (c * CELL_WIDTH) + (CELL_WIDTH / 2);
-                    const textY = (r * CELL_HEIGHT) + (CELL_HEIGHT / 2);
-                    
+                    // Keep names close to the horizontal dividing line.
+                    // Top row: above the line; bottom row: below the line.
+                    const nameOffset = 15; // distance from dividing line in mm
+                    const textY = r === 0
+                        ? midY - nameOffset
+                        : midY + nameOffset;                    
                     svgContent += `
                         <text x="${textX}" y="${textY}" 
                               font-family="sans-serif" 
